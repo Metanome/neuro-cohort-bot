@@ -36,19 +36,19 @@ def main():
     config = load_config('config/sources.yaml')
     logging.info("Configuration loaded successfully.")
 
-    # Initialize data fetcher
-    fetcher = DataFetcher(config)
+    # Initialize data fetcher with sources
+    fetcher = DataFetcher(config['sources'])
 
-    # Initialize Telegram bot (replace with your actual config structure)
-    telegram_token = "YOUR_TELEGRAM_BOT_TOKEN"  # Replace with actual config usage
-    telegram_chat_id = "YOUR_TELEGRAM_CHAT_ID"  # Replace with actual config usage
+    # Initialize Telegram bot using config
+    telegram_token = config['telegram']['token']
+    telegram_chat_id = config['telegram']['chat_id']
     telegram_bot = TelegramBot(telegram_token, telegram_chat_id)
 
     # Run data collection pipeline once at startup
-    data_collection_pipeline(config, fetcher, telegram_bot)
+    data_collection_pipeline(config['sources'], fetcher, telegram_bot)
 
-    # Setup scheduler for periodic runs
-    setup_scheduler(lambda: data_collection_pipeline(config, fetcher, telegram_bot))
+    # Setup scheduler for periodic runs and log cleanup
+    setup_scheduler(lambda: data_collection_pipeline(config['sources'], fetcher, telegram_bot))
     logging.info("Scheduler set up for periodic data collection.")
 
 if __name__ == "__main__":
