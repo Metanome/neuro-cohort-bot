@@ -107,4 +107,4 @@ Contributions are welcome! Please submit a pull request or open an issue for sug
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/Metanome/neuro-cohort-bot/blob/main/LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](https://github.com/Metanome/neuro-cohort-bot/blob/main/LICENSE) file for details.
