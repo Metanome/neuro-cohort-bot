@@ -7,9 +7,11 @@ class TelegramBot:
         self.bot = Bot(token=token)
         self.chat_id = chat_id
 
+    # Send a message to the Telegram group/topic
     def send_message(self, message):
         try:
             self.bot.send_message(chat_id=self.chat_id, text=message, parse_mode='Markdown')
             logging.info("Message sent to Telegram group.")
         except TelegramError as e:
             logging.error(f"Failed to send message: {e}")
+        # TODO: Add retry logic or error reporting if needed

@@ -1,6 +1,6 @@
 class DataFetcher:
     def __init__(self, sources):
-        self.sources = sources
+        self.sources = sources  # List of source configs
 
     def fetch_data(self):
         all_data = []
@@ -42,6 +42,7 @@ class DataFetcher:
             import logging
             logging.warning(f"Website fetch failed for {url}: {e}")
             return []
+        # TODO: Add per-source custom parsing logic as needed
 
     def _fetch_from_api(self, source):
         import requests
@@ -72,3 +73,4 @@ class DataFetcher:
             import logging
             logging.warning(f"API fetch failed for {url}: {e}")
             return []
+        # TODO: Add per-API custom normalization as needed

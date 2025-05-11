@@ -1,3 +1,4 @@
+# Format categorized data into a Markdown message for Telegram
 def format_message(data):
     message_parts = []
     category_titles = {
@@ -20,3 +21,4 @@ def format_message(data):
                 message_parts.append(line + "\n")
             message_parts.append("\n")
     return ''.join(message_parts).strip()
+    # TODO: Add support for HTML formatting if needed

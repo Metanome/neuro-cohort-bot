@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 import logging
 import os
 
+# Set up the scheduler for periodic data collection and log cleanup
 def setup_scheduler(data_collection_function, log_cleanup_days=30):
     scheduler = BackgroundScheduler()
     scheduler.add_job(data_collection_function, 'interval', minutes=30, id='data_collection_job')
@@ -12,6 +13,7 @@ def setup_scheduler(data_collection_function, log_cleanup_days=30):
     scheduler.start()
     return scheduler
 
+# Delete log files older than a certain number of days
 def cleanup_old_logs(log_dir, days=30):
     now = datetime.now()
     cutoff = now - timedelta(days=days)
@@ -25,3 +27,4 @@ def cleanup_old_logs(log_dir, days=30):
                     logging.info(f"Deleted old log file: {file_path}")
                 except Exception as e:
                     logging.warning(f"Failed to delete log file {file_path}: {e}")
+    # TODO: Make log directory and retention configurable via config if needed
