@@ -1,1 +1,0 @@
-# neuro-cohort-bot
