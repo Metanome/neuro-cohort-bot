@@ -18,7 +18,6 @@ Neuro Cohort is a Python-based Telegram bot designed to aggregate and post updat
   - [Customization](#customization)
     - [Adding New Sources](#adding-new-sources)
     - [Adjusting Bot Behavior](#adjusting-bot-behavior)
-  - [Recent Enhancements](#recent-enhancements)
   - [Module Overview](#module-overview)
   - [Contributing](#contributing)
   - [License](#license)
@@ -108,6 +107,7 @@ sources:
 telegram:
   token: "YOUR_TELEGRAM_BOT_TOKEN"
   chat_id: "YOUR_TELEGRAM_CHAT_ID"
+  topic_id: "YOUR_TELEGRAM_TOPIC_ID"
 ```
 
 ## Requirements
@@ -210,41 +210,6 @@ To add new data sources:
 - **URL History**: Adjust `url_retention_days` and `max_stored_urls` to manage URL history
 - **Telegram Rate Limiting**: Set `message_delay_seconds` (3-5 seconds recommended for larger groups)
 - **Status Reports**: Configure `status_report_hours` to change reporting frequency
-
-## Recent Enhancements
-
-The following major enhancements have been implemented:
-
-1. **Pagination Support:**
-   - Added ability to fetch multiple pages from sources like Neuroscience News
-   - Configurable page limits via `max_pages` parameter
-   - Proper rate limiting with delays between page requests
-
-2. **Enhanced Article Details:**
-   - Full extraction of metadata including author, date, source, and research links
-   - Improved extraction of research URLs and titles
-   - Better handling of relative URLs in research links
-
-3. **Improved Message Formatting:**
-   - Added article summaries to provide more context
-   - Disabled link previews for cleaner messages
-   - Changed research section label from "Original Research:" to "Research:"
-   - Reordered content for better readability with research info after source info
-
-4. **Code Quality:**
-   - Added comprehensive docstrings throughout the codebase
-   - Improved error handling and logging
-   - Extracted common functionality into helper methods
-   - Applied DRY principles to reduce code duplication
-   - Moved all inline imports to the top of their respective files
-   - Removed unused imports and redundant modules
-   - Improved organization of utility functions into specialized modules
-
-5. **Status Monitoring:**
-   - Added comprehensive status monitoring for bot health and performance
-   - Created a persistent status tracking system using a JSON file
-   - Implemented detailed per-source statistics to track data collection health
-   - Added error tracking with timestamps and counts
 
 ## Module Overview
 
