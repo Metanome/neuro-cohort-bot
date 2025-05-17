@@ -1,8 +1,21 @@
+# Global settings
+settings:
+  run_interval_minutes: 30  # How often to run the data collection pipeline (in minutes)
+  log_retention_days: 30    # How many days to keep log files before deletion
+  url_retention_days: 90    # How many days to keep posted URLs in history
+  max_stored_urls: 5000     # Maximum number of URLs to store in posted_urls.txt
+  status_report_hours: 24   # How often to send status reports (in hours)
+  message_delay_seconds: 15  # Delay between sending consecutive messages (in seconds)
+                           # Recommended: 1-5 seconds to prevent Telegram rate limiting
+                           # Higher values (3-5) recommended for groups with many members
+
+# Data sources configuration
 sources:
   - name: Neuroscience News
     type: website
     category: news
-    url: "https://neurosciencenews.com/"
+    url: "https://neurosciencenews.com/neuroscience-topics/neuroscience/"
+    max_pages: 3  # Fetch up to 3 pages of content (adjust as needed)
 
   - name: Eventbrite Neuroscience Events
     type: api
@@ -22,8 +35,10 @@ sources:
   - name: Neuroscience Fun Facts
     type: website
     category: facts
-    url: "https://example-facts-source.com/"
+    url: "https://www.brainfacts.org/"
 
+# Telegram configuration
 telegram:
   token: "YOUR_TELEGRAM_BOT_TOKEN"
   chat_id: "YOUR_TELEGRAM_CHAT_ID"
+  topic_id: "YOUR_TELEGRAM_TOPIC_ID"
